@@ -4,7 +4,7 @@
 
 This image is intended for the rapid development and deployment of a web service in just one container . The image contains the following packages:
 
-- alpine:3.5
+- alpine:3.6
 - python 3.6.1
 - pip 9.0.1
 - nginx 1.12.1
@@ -15,7 +15,7 @@ This image is intended for the rapid development and deployment of a web service
 
 In your Dockerfile start with 
 ```
-FROM omza/flask-deploy-stack
+FROM omza/flaskdeploystack
 ```
 
 At runtime mount the Volumes for logfiles and the supervisord.conf file:
@@ -35,6 +35,6 @@ I use this Image as a base for different Proof of concepts and showcases e.g. my
 
 ## Meta
 
-* **Oliver Meyer** - *app workshop UG (haftungsbeschr‰nkt)* - [omza on github](https://github.com/omza)
+* **Oliver Meyer** - *app workshop UG (haftungsbeschr√§nkt)* - [omza on github](https://github.com/omza)
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
