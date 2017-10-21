@@ -30,11 +30,11 @@ RUN mkdir -p /usr/log && \
 	rm /etc/nginx/conf.d/default.conf && \
 	rm /etc/nginx/nginx.conf
 
-COPY ./flask-deploy-stack/gunicorn.conf.py /etc/gunicorn/gunicorn.conf.py
-COPY ./flask-deploy-stack/supervisord.conf /etc/supervisor/supervisor.conf
-COPY ./flask-deploy-stack/nginx.server.conf /etc/nginx/conf.d/nginx.server.conf
-COPY ./flask-deploy-stack/nginx.conf /etc/nginx/nginx.conf
-COPY ./flask-deploy-stack/app.py /usr/app/app.py
+COPY ./flaskdeploystack/gunicorn.conf.py /etc/gunicorn/gunicorn.conf.py
+COPY ./flaskdeploystack/supervisord.conf /etc/supervisor/supervisor.conf
+COPY ./flaskdeploystack/nginx.server.conf /etc/nginx/conf.d/nginx.server.conf
+COPY ./flaskdeploystack/nginx.conf /etc/nginx/nginx.conf
+COPY ./flaskdeploystack/app.py /usr/app/app.py
 
 WORKDIR /usr/app/
 
