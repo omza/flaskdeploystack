@@ -7,11 +7,13 @@ ONBUILD ARG FLASK_DEPLOY_MODULE
 ONBUILD ARG FLASK_DEPLOY_CALLABLE
 ONBUILD ARG FLASK_DEPLOY_PORT
 ONBUILD ARG FLASK_DEPLOY_DOMAIN
+ONBUILD ARG FLASK_DEPLOY_STATIC
 	
 ONBUILD ENV FLASK_DEPLOY_MODULE ${FLASK_DEPLOY_MODULE}
 ONBUILD ENV FLASK_DEPLOY_CALLABLE ${FLASK_DEPLOY_CALLABLE}
 ONBUILD ENV FLASK_DEPLOY_PORT ${FLASK_DEPLOY_PORT}
 ONBUILD ENV FLASK_DEPLOY_DOMAIN ${FLASK_DEPLOY_DOMAIN}
+ONBUILD ENV FLASK_DEPLOY_STATIC ${FLASK_DEPLOY_STATIC}
 
 # Installations Supervisor py3k (dev version) & nginx
 # ---------------------------------------------------------
@@ -45,7 +47,8 @@ VOLUME /usr/log/
 # Config port and callable
 ONBUILD RUN sed -i -e "s/app:app/${FLASK_DEPLOY_MODULE}:${FLASK_DEPLOY_CALLABLE}/g" /etc/supervisor/supervisor.conf &&\
 	sed -i -e "s/listen 8000;/listen ${FLASK_DEPLOY_PORT};/g" /etc/nginx/conf.d/nginx.server.conf &&\
-	sed -i -e "s/server_name _;/server_name ${FLASK_DEPLOY_DOMAIN};/g" /etc/nginx/conf.d/nginx.server.conf 
+	sed -i -e "s/server_name _;/server_name ${FLASK_DEPLOY_DOMAIN};/g" /etc/nginx/conf.d/nginx.server.conf &&\
+	sed -i -e "s/root /usr/app/static;/root ${FLASK_DEPLOY_STATIC};/g" /etc/nginx/conf.d/nginx.server.conf
 
 # Start & Stop
 # -----------------------------------------------------------
