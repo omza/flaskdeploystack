@@ -47,7 +47,8 @@ VOLUME /usr/log/
 # Config port and callable
 ONBUILD RUN sed -i -e "s/app:app/${FLASK_DEPLOY_MODULE}:${FLASK_DEPLOY_CALLABLE}/g" /etc/supervisor/supervisor.conf &&\
 	sed -i -e "s/listen 8000;/listen ${FLASK_DEPLOY_PORT};/g" /etc/nginx/conf.d/nginx.server.conf &&\
-	sed -i -e "s/server_name _;/server_name ${FLASK_DEPLOY_DOMAIN};/g" /etc/nginx/conf.d/nginx.server.conf
+	sed -i -e "s/server_name _;/server_name ${FLASK_DEPLOY_DOMAIN};/g" /etc/nginx/conf.d/nginx.server.conf &&\
+	sed -i -e "s|root _;|root ${FLASK_DEPLOY_STATIC};|g" /etc/nginx/conf.d/nginx.server.conf
 
 # Start & Stop
 # -----------------------------------------------------------
