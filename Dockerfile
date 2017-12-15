@@ -29,7 +29,7 @@ RUN apk update && \
 # -------------------------------------------------------
 RUN mkdir -p /usr/log && \
 	mkdir -p /usr/app && \
-	mkdir -p /usr/static && \
+	mkdir -p /usr/html && \
 	rm /etc/nginx/conf.d/default.conf && \
 	rm /etc/nginx/nginx.conf
 
