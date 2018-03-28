@@ -19,7 +19,7 @@ RUN apk update && \
     apk upgrade && \
     apk add -u git nginx sed && \
 	pip install --no-cache-dir setuptools-git && \
-	pip install --no-cache-dir git+https://github.com/orgsea/supervisor-py3k.git && \
+	pip install --no-cache-dir supervisor && \
 	pip install --no-cache-dir flask && \
 	pip install --no-cache-dir gunicorn
 
