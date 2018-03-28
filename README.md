@@ -8,7 +8,7 @@ This image is intended for the rapid development and deployment of a web service
 - python 3.6.1
 - pip 9.0.1
 - nginx 1.12.1
-- supervisor 4
+- [Supervisor py3k](https://github.com/lowcloudnine/supervisor-py3k) (dev version)
 
 
 ## Getting started
